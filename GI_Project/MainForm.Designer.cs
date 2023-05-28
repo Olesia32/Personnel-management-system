@@ -42,9 +42,6 @@ namespace GI_Project
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
@@ -88,7 +85,6 @@ namespace GI_Project
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.leaders_junior_dgv = new System.Windows.Forms.DataGridView();
-            this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
             this.log_panel = new System.Windows.Forms.Panel();
             this.log_list_box = new System.Windows.Forms.ListBox();
@@ -107,7 +103,6 @@ namespace GI_Project
             this.av_wage_per_hour = new System.Windows.Forms.Button();
             this.result_panel = new System.Windows.Forms.Panel();
             this.show_label = new System.Windows.Forms.Label();
-            this.info_label = new System.Windows.Forms.Label();
             this.programmer_bt = new System.Windows.Forms.Button();
             this.leader_bt = new System.Windows.Forms.Button();
             this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
@@ -115,13 +110,17 @@ namespace GI_Project
             this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.helpToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.diagram_bt = new System.Windows.Forms.Button();
+            this.status_lb = new System.Windows.Forms.ToolStripStatusLabel();
+            this.error_lb = new System.Windows.Forms.ToolStripStatusLabel();
+            this.current_status = new System.Windows.Forms.ToolStripStatusLabel();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
+            this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -142,6 +141,10 @@ namespace GI_Project
             // 
             // statusStrip1
             // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.status_lb,
+            this.error_lb,
+            this.current_status});
             this.statusStrip1.Location = new System.Drawing.Point(0, 648);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(844, 22);
@@ -153,8 +156,7 @@ namespace GI_Project
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
-            this.exitToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.exitToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(844, 24);
@@ -233,26 +235,6 @@ namespace GI_Project
             this.exitToolStripMenuItem.Text = "&Вийти";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // helpToolStripMenuItem
-            // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripSeparator5,
-            this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
-            this.helpToolStripMenuItem.Text = "&Допомога";
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(151, 6);
-            // 
-            // aboutToolStripMenuItem
-            // 
-            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.aboutToolStripMenuItem.Text = "&Про програму";
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -262,8 +244,7 @@ namespace GI_Project
             this.toolStripSeparator6,
             this.copyToolStripButton,
             this.toolStripSeparator7,
-            this.printToolStripButton,
-            this.helpToolStripButton});
+            this.printToolStripButton});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(844, 25);
@@ -355,7 +336,7 @@ namespace GI_Project
             this.log_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.log_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.log_bt.ForeColor = System.Drawing.Color.GhostWhite;
-            this.log_bt.Location = new System.Drawing.Point(0, 257);
+            this.log_bt.Location = new System.Drawing.Point(0, 39);
             this.log_bt.Name = "log_bt";
             this.log_bt.Size = new System.Drawing.Size(200, 42);
             this.log_bt.TabIndex = 5;
@@ -372,7 +353,7 @@ namespace GI_Project
             this.close_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.close_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.close_bt.ForeColor = System.Drawing.Color.GhostWhite;
-            this.close_bt.Location = new System.Drawing.Point(0, 320);
+            this.close_bt.Location = new System.Drawing.Point(0, 430);
             this.close_bt.Name = "close_bt";
             this.close_bt.Size = new System.Drawing.Size(200, 42);
             this.close_bt.TabIndex = 4;
@@ -389,7 +370,7 @@ namespace GI_Project
             this.search_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.search_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.search_bt.ForeColor = System.Drawing.Color.GhostWhite;
-            this.search_bt.Location = new System.Drawing.Point(0, 195);
+            this.search_bt.Location = new System.Drawing.Point(0, 105);
             this.search_bt.Name = "search_bt";
             this.search_bt.Size = new System.Drawing.Size(200, 42);
             this.search_bt.TabIndex = 3;
@@ -406,7 +387,7 @@ namespace GI_Project
             this.delete_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delete_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.delete_bt.ForeColor = System.Drawing.Color.GhostWhite;
-            this.delete_bt.Location = new System.Drawing.Point(0, 138);
+            this.delete_bt.Location = new System.Drawing.Point(0, 302);
             this.delete_bt.Name = "delete_bt";
             this.delete_bt.Size = new System.Drawing.Size(200, 42);
             this.delete_bt.TabIndex = 2;
@@ -423,7 +404,7 @@ namespace GI_Project
             this.change_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.change_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.change_bt.ForeColor = System.Drawing.Color.GhostWhite;
-            this.change_bt.Location = new System.Drawing.Point(0, 78);
+            this.change_bt.Location = new System.Drawing.Point(0, 239);
             this.change_bt.Name = "change_bt";
             this.change_bt.Size = new System.Drawing.Size(200, 42);
             this.change_bt.TabIndex = 1;
@@ -440,7 +421,7 @@ namespace GI_Project
             this.create_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.create_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.create_bt.ForeColor = System.Drawing.Color.GhostWhite;
-            this.create_bt.Location = new System.Drawing.Point(0, 20);
+            this.create_bt.Location = new System.Drawing.Point(0, 173);
             this.create_bt.Name = "create_bt";
             this.create_bt.Size = new System.Drawing.Size(200, 42);
             this.create_bt.TabIndex = 0;
@@ -665,11 +646,6 @@ namespace GI_Project
             this.leaders_junior_dgv.TabIndex = 9;
             this.leaders_junior_dgv.Visible = false;
             // 
-            // printDialog1
-            // 
-            this.printDialog1.Document = this.printDocument1;
-            this.printDialog1.UseEXDialog = true;
-            // 
             // printDocument1
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
@@ -687,8 +663,10 @@ namespace GI_Project
             // 
             this.log_list_box.Dock = System.Windows.Forms.DockStyle.Fill;
             this.log_list_box.FormattingEnabled = true;
+            this.log_list_box.HorizontalScrollbar = true;
             this.log_list_box.Location = new System.Drawing.Point(0, 0);
             this.log_list_box.Name = "log_list_box";
+            this.log_list_box.SelectionMode = System.Windows.Forms.SelectionMode.None;
             this.log_list_box.Size = new System.Drawing.Size(314, 429);
             this.log_list_box.TabIndex = 0;
             // 
@@ -890,23 +868,12 @@ namespace GI_Project
             // show_label
             // 
             this.show_label.AutoSize = true;
-            this.show_label.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.show_label.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.show_label.ForeColor = System.Drawing.Color.DarkCyan;
             this.show_label.Location = new System.Drawing.Point(13, 28);
             this.show_label.Name = "show_label";
-            this.show_label.Size = new System.Drawing.Size(0, 22);
+            this.show_label.Size = new System.Drawing.Size(0, 17);
             this.show_label.TabIndex = 0;
-            // 
-            // info_label
-            // 
-            this.info_label.AutoSize = true;
-            this.info_label.ForeColor = System.Drawing.Color.Red;
-            this.info_label.Location = new System.Drawing.Point(206, 651);
-            this.info_label.Name = "info_label";
-            this.info_label.Size = new System.Drawing.Size(79, 13);
-            this.info_label.TabIndex = 14;
-            this.info_label.Text = "Оберіть рядок";
-            this.info_label.Visible = false;
             // 
             // programmer_bt
             // 
@@ -994,21 +961,12 @@ namespace GI_Project
             this.printToolStripButton.Text = "&Друк";
             this.printToolStripButton.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
-            // helpToolStripButton
-            // 
-            this.helpToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.helpToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("helpToolStripButton.Image")));
-            this.helpToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.helpToolStripButton.Name = "helpToolStripButton";
-            this.helpToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.helpToolStripButton.Text = "&Про програму";
-            // 
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.newToolStripMenuItem.Text = "&Новий файл";
             this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
             // 
@@ -1055,7 +1013,7 @@ namespace GI_Project
             this.diagram_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.diagram_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.diagram_bt.ForeColor = System.Drawing.Color.GhostWhite;
-            this.diagram_bt.Location = new System.Drawing.Point(0, 379);
+            this.diagram_bt.Location = new System.Drawing.Point(0, 368);
             this.diagram_bt.Name = "diagram_bt";
             this.diagram_bt.Size = new System.Drawing.Size(200, 42);
             this.diagram_bt.TabIndex = 6;
@@ -1065,13 +1023,40 @@ namespace GI_Project
             this.diagram_bt.MouseEnter += new System.EventHandler(this.diagram_bt_MouseEnter);
             this.diagram_bt.MouseLeave += new System.EventHandler(this.diagram_bt_MouseLeave);
             // 
+            // status_lb
+            // 
+            this.status_lb.Name = "status_lb";
+            this.status_lb.Size = new System.Drawing.Size(118, 17);
+            this.status_lb.Text = "toolStripStatusLabel1";
+            // 
+            // error_lb
+            // 
+            this.error_lb.ForeColor = System.Drawing.Color.Red;
+            this.error_lb.Name = "error_lb";
+            this.error_lb.Size = new System.Drawing.Size(0, 17);
+            // 
+            // current_status
+            // 
+            this.current_status.Name = "current_status";
+            this.current_status.Size = new System.Drawing.Size(0, 17);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Document = this.printDocument1;
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.GhostWhite;
             this.ClientSize = new System.Drawing.Size(844, 670);
-            this.Controls.Add(this.info_label);
             this.Controls.Add(this.result_panel);
             this.Controls.Add(this.button_box);
             this.Controls.Add(this.log_panel);
@@ -1088,6 +1073,8 @@ namespace GI_Project
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Управління персоналом";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
@@ -1131,9 +1118,6 @@ namespace GI_Project
         private System.Windows.Forms.ToolStripMenuItem copyToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem selectAllToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton newToolStripButton;
         private System.Windows.Forms.ToolStripButton openToolStripButton;
@@ -1142,7 +1126,6 @@ namespace GI_Project
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
         private System.Windows.Forms.ToolStripButton copyToolStripButton;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripButton helpToolStripButton;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label name_label;
         private System.Windows.Forms.Panel panel2;
@@ -1185,7 +1168,6 @@ namespace GI_Project
         private System.Windows.Forms.DataGridView leaders_junior_dgv;
         private System.Windows.Forms.Button close_bt;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
-        private System.Windows.Forms.PrintDialog printDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
         private System.Windows.Forms.Button log_bt;
         private System.Windows.Forms.Panel log_panel;
@@ -1205,7 +1187,10 @@ namespace GI_Project
         private System.Windows.Forms.Button max_salary;
         private System.Windows.Forms.Panel result_panel;
         private System.Windows.Forms.Label show_label;
-        private System.Windows.Forms.Label info_label;
         private System.Windows.Forms.Button diagram_bt;
+        private System.Windows.Forms.ToolStripStatusLabel status_lb;
+        private System.Windows.Forms.ToolStripStatusLabel error_lb;
+        private System.Windows.Forms.ToolStripStatusLabel current_status;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

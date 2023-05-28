@@ -107,9 +107,7 @@ namespace GI_Project
             {
                 return false;
             }
-
-            // Перевірка рівності додаткових полів класу Leader
-            return junior == otherLeader.junior;
+            return true;
         }
         public static bool operator ==(Leader leader1, Leader leader2)
         {

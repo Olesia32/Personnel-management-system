@@ -20,11 +20,12 @@ namespace GI_Project
         private bool is_changed;
         private bool is_new_file;
         private bool is_log;
-       
+        private string message;
+
         public MainForm()
         {
             InitializeComponent();
-            path = @"../../Files/coma.txt";
+            path = @"../../Files/default.txt";
             LoadData("txt");
             current_dgv = leaders_dgv;
             is_leaders = true;
@@ -32,9 +33,13 @@ namespace GI_Project
             is_new_file = false;
             is_changed = false;
             is_log = false;
+            message = "Доступно записів: ";
+            UpdateInfo();
         }
         private void LoadData(string format)
         {
+            Personal.Clear();
+            Personal.ClearLog();
             switch(format)
             {
                 case "txt":
@@ -56,10 +61,13 @@ namespace GI_Project
         
         private void DGV_Filling(object[] array, DataGridView data)
         {
+            current_status.Text = "Додавання даних.";
             foreach (object[] i in array)
             {
                 data.Rows.Add(i);
+                UpdateInfo();
             }
+            current_status.Text = "Відображення даних.";
         }
         private void create_bt_Click(object sender, EventArgs e)
         {
@@ -82,6 +90,7 @@ namespace GI_Project
                     NewMessage($"Створено програміста {create.new_programmer.ToString()} ");
                 }
                 is_changed = true;
+                UpdateInfo();
             }
             create.Dispose();
         }
@@ -95,10 +104,11 @@ namespace GI_Project
             }
             catch
             {
-                info_label.Visible = true;
+                error_lb.Text = "Оберіть рядок";
             }
-            if (index >= 0)
+            if (index >= 0 && !show_click)
             {
+                error_lb.Text = string.Empty;
                 DataGridViewCellCollection data = current_dgv.Rows[index].Cells;
                 if (is_leaders)
                 {
@@ -114,6 +124,7 @@ namespace GI_Project
                 }
                 current_dgv.Rows.RemoveAt(index);
                 is_changed = true;
+                UpdateInfo();
             }
         }
 
@@ -221,12 +232,12 @@ namespace GI_Project
                 }
                 catch
                 {
-                    info_label.Visible = true;
+                    error_lb.Text = "Оберіть рядок";
                 }
                 if (index >= 0)
                 {
+                    error_lb.Text = string.Empty;
                     show_click = true;
-                     current_dgv.Visible = false;
                     if (is_leaders)
                     {
                         Leader leader = CreateLeader(current_dgv.Rows[index].Cells);
@@ -234,42 +245,51 @@ namespace GI_Project
                         {
                             foreach (Programmer i in Personal.GetEmployeesByLeader(leader))
                             {
+                                var k = i.ToArray();
                                 leaders_junior_dgv.Rows.Add(i.ToArray());
                             }
                         }
                         leaders_junior_dgv.Visible = true;
+                        current_dgv = leaders_junior_dgv;
                         search_bt.Text = "Приховати підлеглих";
+                        leaders_dgv.Visible = false;
                     }
                     else
                     {
                         Programmer programmer = CreateProgrammer(current_dgv.Rows[index].Cells);
                         programmers_leader_dgv.Rows.Add(Personal.GetLeaderByEmployee(programmer).ToArray());
                         programmers_leader_dgv.Visible = true;
+                        current_dgv = programmers_leader_dgv;
                         search_bt.Text = "Приховати керівника";
+                        programmers_dgv.Visible = false;
                     }
                 }
             }
             else
             {
                 show_click = false;
-                current_dgv.Visible = true;
                 if (is_leaders)
                 {
                     search_bt.Text = "Показати підлеглих";
                     ClearDataGridView(leaders_junior_dgv);
                     leaders_junior_dgv.Visible = false;
+                    leaders_dgv.Visible = true;
+                    current_dgv = leaders_dgv;
                 }
                 else
                 {
                     search_bt.Text = "Показати керівника";
                     ClearDataGridView(programmers_leader_dgv);
                     programmers_leader_dgv.Visible = false;
+                    programmers_dgv.Visible = true;
+                    current_dgv = programmers_dgv;
                 }
             }
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            current_status.Text = "Збереження даних.";
             DialogResult result = saveFileDialog1.ShowDialog();
             if (result == DialogResult.OK)
             {
@@ -281,6 +301,7 @@ namespace GI_Project
                     case 4: Personal.WriteToJsonFile(saveFileDialog1.FileName); break;
                 }
             }
+            current_status.Text = "Відображення даних.";
         }
         private void ClearDataGridView(DataGridView dgv)
         {
@@ -333,10 +354,11 @@ namespace GI_Project
             }
             catch
             {
-                info_label.Visible = true;
+                error_lb.Text = "Оберіть рядок";
             }
-            if (index >= 0)
+            if (index >= 0 && !show_click)
             {
+                error_lb.Text = string.Empty;
                 Employee employee = new Employee();
                 if (is_leaders)
                 {
@@ -383,6 +405,10 @@ namespace GI_Project
                 change.Dispose();
             }
         }
+        private void UpdateInfo()
+        {
+            status_lb.Text = message + (Personal.CountLeader + Personal.CountProgrammer).ToString();
+        }
 
         private void close_bt_MouseEnter(object sender, EventArgs e)
         {
@@ -417,8 +443,7 @@ namespace GI_Project
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LoginForm login = new LoginForm();
-            login.Show();
+            Close();
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -437,11 +462,8 @@ namespace GI_Project
 
         private void printToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult result = printDialog1.ShowDialog();
-            if(result == DialogResult.OK)
-            {
-                printDocument1.Print();
-            }
+            current_status.Text = "Друк";
+            DialogResult result = printPreviewDialog1.ShowDialog();
         }
 
         private void copyToolStripMenuItem_Click(object sender, EventArgs e)
@@ -466,7 +488,9 @@ namespace GI_Project
 
         private void selectAllToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            current_status.Text = "Виділено всі дані";
             current_dgv.SelectAll();
+            current_status.Text = "Відображення даних";
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
@@ -493,6 +517,7 @@ namespace GI_Project
         {
             if (!is_log)
             {
+                current_status.Text = "Журнал операцій";
                 is_log = true;
                 create_bt.Enabled = false;
                 delete_bt.Enabled = false;
@@ -512,6 +537,7 @@ namespace GI_Project
             }
             else
             {
+                current_status.Text = "Відображення даних";
                 is_log = false;
                 create_bt.Enabled = true;
                 delete_bt.Enabled = true;

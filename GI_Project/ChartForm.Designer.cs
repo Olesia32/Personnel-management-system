@@ -29,12 +29,12 @@ namespace GI_Project
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.leaders = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.programmers = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button_panel = new System.Windows.Forms.Panel();
@@ -52,34 +52,34 @@ namespace GI_Project
             // 
             // leaders
             // 
-            chartArea5.Name = "ChartArea1";
-            this.leaders.ChartAreas.Add(chartArea5);
-            legend5.Name = "Legend1";
-            this.leaders.Legends.Add(legend5);
+            chartArea7.Name = "ChartArea1";
+            this.leaders.ChartAreas.Add(chartArea7);
+            legend7.Name = "Legend1";
+            this.leaders.Legends.Add(legend7);
             this.leaders.Location = new System.Drawing.Point(0, 0);
             this.leaders.Name = "leaders";
             this.leaders.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series5.ChartArea = "ChartArea1";
-            series5.Legend = "Legend1";
-            series5.Name = "Series1";
-            this.leaders.Series.Add(series5);
+            series7.ChartArea = "ChartArea1";
+            series7.Legend = "Legend1";
+            series7.Name = "Series1";
+            this.leaders.Series.Add(series7);
             this.leaders.Size = new System.Drawing.Size(527, 383);
             this.leaders.TabIndex = 0;
             this.leaders.Text = "chart1";
             // 
             // programmers
             // 
-            chartArea6.Name = "ChartArea1";
-            this.programmers.ChartAreas.Add(chartArea6);
-            legend6.Name = "Legend1";
-            this.programmers.Legends.Add(legend6);
+            chartArea8.Name = "ChartArea1";
+            this.programmers.ChartAreas.Add(chartArea8);
+            legend8.Name = "Legend1";
+            this.programmers.Legends.Add(legend8);
             this.programmers.Location = new System.Drawing.Point(528, 0);
             this.programmers.Name = "programmers";
             this.programmers.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series6.ChartArea = "ChartArea1";
-            series6.Legend = "Legend1";
-            series6.Name = "Series1";
-            this.programmers.Series.Add(series6);
+            series8.ChartArea = "ChartArea1";
+            series8.Legend = "Legend1";
+            series8.Name = "Series1";
+            this.programmers.Series.Add(series8);
             this.programmers.Size = new System.Drawing.Size(507, 383);
             this.programmers.TabIndex = 1;
             this.programmers.Text = "chart2";
@@ -120,9 +120,8 @@ namespace GI_Project
             this.programmer_lb.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.programmer_lb.Location = new System.Drawing.Point(632, 21);
             this.programmer_lb.Name = "programmer_lb";
-            this.programmer_lb.Size = new System.Drawing.Size(47, 17);
+            this.programmer_lb.Size = new System.Drawing.Size(0, 17);
             this.programmer_lb.TabIndex = 5;
-            this.programmer_lb.Text = "label1";
             // 
             // programmer_prg
             // 
@@ -137,9 +136,8 @@ namespace GI_Project
             this.leader_lb.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.leader_lb.Location = new System.Drawing.Point(44, 21);
             this.leader_lb.Name = "leader_lb";
-            this.leader_lb.Size = new System.Drawing.Size(47, 17);
+            this.leader_lb.Size = new System.Drawing.Size(0, 17);
             this.leader_lb.TabIndex = 3;
-            this.leader_lb.Text = "label1";
             // 
             // leader_prg
             // 

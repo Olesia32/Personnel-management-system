@@ -7,6 +7,7 @@ using System.IO;
 
 namespace GI_Project
 {
+    [Serializable]
     public class HumanResourcesDepartment
     {
         public string Message

@@ -18,6 +18,7 @@ namespace GI_Project
         public static Dictionary<Leader, List<Programmer>> hierarchy = new Dictionary<Leader, List<Programmer>>();
         public static List<string> log = new List<string>();
         public static HumanResourcesDepartment human_resources_department = new HumanResourcesDepartment();
+        private static string password;
 
         public static int CountProgrammer
         {
@@ -66,7 +67,7 @@ namespace GI_Project
                 }
             }
         }
-        public static List<Programmer> DeleteLeader(Leader leader)
+        public static void DeleteLeader(Leader leader)
         {
             List<Programmer> employeeList = new List<Programmer>();
             if (hierarchy.ContainsKey(leader))
@@ -74,11 +75,14 @@ namespace GI_Project
                 employeeList = hierarchy[leader];
                 hierarchy.Remove(leader);
             }
-            return employeeList;
+            foreach(Programmer i in employeeList)
+            {
+                AddNewEmployee(new Leader(), i);
+            }
         }
         public static Leader GetLeaderByEmployee(Programmer programmer)
         {
-            foreach (var pair in hierarchy)
+            foreach (KeyValuePair<Leader, List<Programmer>> pair in hierarchy)
             {
                 if (pair.Value.Contains(programmer))
                 {
@@ -99,7 +103,7 @@ namespace GI_Project
         {
             if (isLeader)
             {
-                foreach (var leader in hierarchy.Keys)
+                foreach (Leader leader in hierarchy.Keys)
                 {
                     if (leader.Equals(oldEmployee))
                     {
@@ -113,9 +117,9 @@ namespace GI_Project
             }
             else
             {
-                foreach (var leader in hierarchy.Keys)
+                foreach (Leader leader in hierarchy.Keys)
                 {
-                    foreach (var programmer in hierarchy[leader])
+                    foreach (Programmer programmer in hierarchy[leader])
                     {
                         if (programmer.Equals(oldEmployee))
                         {
@@ -247,7 +251,7 @@ namespace GI_Project
         {
             XElement rootElement = new XElement("Dictionary");
 
-            foreach (var kvp in hierarchy)
+            foreach (KeyValuePair<Leader, List<Programmer>> kvp in hierarchy)
             {
                 XElement leaderElement = new XElement("Leader");
                 leaderElement.Add(new XElement("Surname", kvp.Key.Surname));
@@ -255,7 +259,7 @@ namespace GI_Project
                 leaderElement.Add(new XElement("WagePerHour", kvp.Key.Wage_per_hour));
                 leaderElement.Add(new XElement("MinimumAmountHour", kvp.Key.Minimum_amount_hour));
 
-                foreach (var programmer in kvp.Value)
+                foreach (Programmer programmer in kvp.Value)
                 {
                     XElement programmerElement = new XElement("Programmer");
                     programmerElement.Add(new XElement("Surname", programmer.Surname));
@@ -311,7 +315,7 @@ namespace GI_Project
         public static List<string> ListOfLeaders()
         {
             List<string> list = new List<string>();
-            foreach (var i in hierarchy.Keys)
+            foreach (Leader i in hierarchy.Keys)
             {
                 string line = string.Empty;
                 line += $"{i.Surname}; {i.Experience}; {i.Wage_per_hour}; {i.Minimum_amount_hour}";
@@ -363,7 +367,7 @@ namespace GI_Project
         public static void WriteToJsonFile(string filePath)
         {
             var data = new Dictionary<string, List<Programmer>>();
-            foreach (var item in hierarchy)
+            foreach (KeyValuePair<Leader, List<Programmer>> item in hierarchy)
             {
                 string key = JsonConvert.SerializeObject(item.Key);
                 data.Add(key, item.Value);
@@ -491,7 +495,7 @@ namespace GI_Project
         {
             List<double> salaries = new List<double>();
             // Отримуємо зарплати керівників
-            foreach (var leader in hierarchy.Keys)
+            foreach (Leader leader in hierarchy.Keys)
             {
                 salaries.Add(leader.Salary());
             }
@@ -502,9 +506,9 @@ namespace GI_Project
             List<double> salaries = new List<double>();
 
             // Отримуємо зарплати працівників
-            foreach (var leader in hierarchy.Keys)
+            foreach (Leader leader in hierarchy.Keys)
             {
-                foreach (var programmer in hierarchy[leader])
+                foreach (Programmer programmer in hierarchy[leader])
                 {
                     salaries.Add(programmer.Salary());
                 }
@@ -529,6 +533,15 @@ namespace GI_Project
             }
 
             return empiricalDistribution;
+        }
+        public static bool CheckPassword(string line)
+        {
+            using (StreamReader reader = new StreamReader(@"..\..\Password\password.txt"))
+            {
+                password = reader.ReadLine();
+            }
+            if (line == password) return true;
+            else return false;
         }
     }
 }

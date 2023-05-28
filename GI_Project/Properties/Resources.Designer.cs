@@ -63,39 +63,9 @@ namespace GI_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _1282897_200 {
-            get {
-                object obj = ResourceManager.GetObject("1282897-200", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1282897_200__1_ {
-            get {
-                object obj = ResourceManager.GetObject("1282897-200 (1)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _1282897_200__1_1 {
             get {
                 object obj = ResourceManager.GetObject("1282897-200 (1)1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _1282897_2001 {
-            get {
-                object obj = ResourceManager.GetObject("1282897-2001", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,28 +96,6 @@ namespace GI_Project.Properties {
         internal static System.Drawing.Bitmap _840131__2_ {
             get {
                 object obj = ResourceManager.GetObject("840131 (2)", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap essential_compilation_icon_file_icon_document_icon_white_text_black_line_rectangle_logo_material_property_png_clipart {
-            get {
-                object obj = ResourceManager.GetObject("essential-compilation-icon-file-icon-document-icon-white-text-black-line-rectangl" +
-                        "e-logo-material-property-png-clipart", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap kisspng_web_page_sales_clip_art_landing_page_design_the_emissa_group_5b8d88a8a3ced7_851213061536002216671 {
-            get {
-                object obj = ResourceManager.GetObject("kisspng-web-page-sales-clip-art-landing-page-design-the-emissa-group-5b8d88a8a3ce" +
-                        "d7.851213061536002216671", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -188,31 +136,10 @@ namespace GI_Project.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap kisspng_web_page_sales_clip_art_landing_page_design_the_emissa_group_5b8d88a8a3ced73 {
-            get {
-                object obj = ResourceManager.GetObject("kisspng-web-page-sales-clip-art-landing-page-design-the-emissa-group-5b8d88a8a3ce" +
-                        "d73", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap kisspng_web_page_sales_clip_art_landing_page_design_the_emissa_group_5b8d88a8a3ced74 {
             get {
                 object obj = ResourceManager.GetObject("kisspng-web-page-sales-clip-art-landing-page-design-the-emissa-group-5b8d88a8a3ce" +
                         "d74", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ld_white_gray {
-            get {
-                object obj = ResourceManager.GetObject("ld_white_gray", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -273,16 +200,6 @@ namespace GI_Project.Properties {
         internal static System.Drawing.Bitmap pr_white_gray1 {
             get {
                 object obj = ResourceManager.GetObject("pr_white_gray1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Дизайн_без_назви_page_0001 {
-            get {
-                object obj = ResourceManager.GetObject("Дизайн без назви_page-0001", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
