@@ -58,10 +58,11 @@ namespace GI_Project
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.leder_choise_panel = new System.Windows.Forms.Panel();
-            this.programmer_choise_panel = new System.Windows.Forms.Panel();
-            this.empty_entry = new System.Windows.Forms.Label();
-            this.programmer_bt = new System.Windows.Forms.Button();
             this.leader_bt = new System.Windows.Forms.Button();
+            this.programmer_choise_panel = new System.Windows.Forms.Panel();
+            this.programmer_bt = new System.Windows.Forms.Button();
+            this.empty_entry = new System.Windows.Forms.Label();
+            this.invalid_data = new System.Windows.Forms.Label();
             this.leader_panel.SuspendLayout();
             this.programmer_panel.SuspendLayout();
             this.leder_choise_panel.SuspendLayout();
@@ -105,7 +106,7 @@ namespace GI_Project
             // 
             // leader_panel
             // 
-            this.leader_panel.Controls.Add(this.invalid_data_bt);
+            this.leader_panel.Controls.Add(this.invalid_data);
             this.leader_panel.Controls.Add(this.surname_ld);
             this.leader_panel.Controls.Add(this.wage_per_hour_ld);
             this.leader_panel.Controls.Add(this.minimum_hour_ld);
@@ -243,6 +244,7 @@ namespace GI_Project
             // 
             // programmer_panel
             // 
+            this.programmer_panel.Controls.Add(this.invalid_data_bt);
             this.programmer_panel.Controls.Add(this.label6);
             this.programmer_panel.Controls.Add(this.leader_cb);
             this.programmer_panel.Controls.Add(this.worked_hour_pr);
@@ -397,6 +399,24 @@ namespace GI_Project
             this.leder_choise_panel.Size = new System.Drawing.Size(97, 101);
             this.leder_choise_panel.TabIndex = 15;
             // 
+            // leader_bt
+            // 
+            this.leader_bt.BackgroundImage = global::GI_Project.Properties.Resources.kisspng_web_page_sales_clip_art_landing_page_design_the_emissa_group_5b8d88a8a3ced71;
+            this.leader_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.leader_bt.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
+            this.leader_bt.FlatAppearance.BorderSize = 0;
+            this.leader_bt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
+            this.leader_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
+            this.leader_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.leader_bt.Location = new System.Drawing.Point(10, 8);
+            this.leader_bt.Margin = new System.Windows.Forms.Padding(4);
+            this.leader_bt.Name = "leader_bt";
+            this.leader_bt.Size = new System.Drawing.Size(73, 62);
+            this.leader_bt.TabIndex = 4;
+            this.leader_bt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.leader_bt.UseVisualStyleBackColor = true;
+            this.leader_bt.Click += new System.EventHandler(this.leader_bt_Click);
+            // 
             // programmer_choise_panel
             // 
             this.programmer_choise_panel.Controls.Add(this.programmer_bt);
@@ -405,18 +425,6 @@ namespace GI_Project
             this.programmer_choise_panel.Name = "programmer_choise_panel";
             this.programmer_choise_panel.Size = new System.Drawing.Size(97, 101);
             this.programmer_choise_panel.TabIndex = 16;
-            // 
-            // empty_entry
-            // 
-            this.empty_entry.AutoSize = true;
-            this.empty_entry.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.empty_entry.ForeColor = System.Drawing.Color.Red;
-            this.empty_entry.Location = new System.Drawing.Point(258, 435);
-            this.empty_entry.Name = "empty_entry";
-            this.empty_entry.Size = new System.Drawing.Size(128, 17);
-            this.empty_entry.TabIndex = 17;
-            this.empty_entry.Text = "Заповніть усі поля!";
-            this.empty_entry.Visible = false;
             // 
             // programmer_bt
             // 
@@ -436,23 +444,29 @@ namespace GI_Project
             this.programmer_bt.UseVisualStyleBackColor = true;
             this.programmer_bt.Click += new System.EventHandler(this.programmer_bt_Click);
             // 
-            // leader_bt
+            // empty_entry
             // 
-            this.leader_bt.BackgroundImage = global::GI_Project.Properties.Resources.kisspng_web_page_sales_clip_art_landing_page_design_the_emissa_group_5b8d88a8a3ced71;
-            this.leader_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.leader_bt.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
-            this.leader_bt.FlatAppearance.BorderSize = 0;
-            this.leader_bt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this.leader_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this.leader_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.leader_bt.Location = new System.Drawing.Point(10, 8);
-            this.leader_bt.Margin = new System.Windows.Forms.Padding(4);
-            this.leader_bt.Name = "leader_bt";
-            this.leader_bt.Size = new System.Drawing.Size(73, 62);
-            this.leader_bt.TabIndex = 4;
-            this.leader_bt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.leader_bt.UseVisualStyleBackColor = true;
-            this.leader_bt.Click += new System.EventHandler(this.leader_bt_Click);
+            this.empty_entry.AutoSize = true;
+            this.empty_entry.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.empty_entry.ForeColor = System.Drawing.Color.Red;
+            this.empty_entry.Location = new System.Drawing.Point(258, 435);
+            this.empty_entry.Name = "empty_entry";
+            this.empty_entry.Size = new System.Drawing.Size(128, 17);
+            this.empty_entry.TabIndex = 17;
+            this.empty_entry.Text = "Заповніть усі поля!";
+            this.empty_entry.Visible = false;
+            // 
+            // invalid_data
+            // 
+            this.invalid_data.AutoSize = true;
+            this.invalid_data.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.invalid_data.ForeColor = System.Drawing.Color.Red;
+            this.invalid_data.Location = new System.Drawing.Point(412, 61);
+            this.invalid_data.Name = "invalid_data";
+            this.invalid_data.Size = new System.Drawing.Size(41, 16);
+            this.invalid_data.TabIndex = 14;
+            this.invalid_data.Text = "label5";
+            this.invalid_data.Visible = false;
             // 
             // CreateForm
             // 
@@ -520,5 +534,6 @@ namespace GI_Project
         private System.Windows.Forms.Panel leder_choise_panel;
         private System.Windows.Forms.Panel programmer_choise_panel;
         private System.Windows.Forms.Label empty_entry;
+        private System.Windows.Forms.Label invalid_data;
     }
 }

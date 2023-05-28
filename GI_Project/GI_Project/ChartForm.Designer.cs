@@ -29,22 +29,22 @@ namespace GI_Project
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend7 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series7 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend8 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series8 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.leaders = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.programmers = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.button_panel = new System.Windows.Forms.Panel();
+            this.break_bt = new System.Windows.Forms.Button();
             this.show_bt = new System.Windows.Forms.Button();
             this.programmer_lb = new System.Windows.Forms.Label();
             this.programmer_prg = new System.Windows.Forms.ProgressBar();
             this.leader_lb = new System.Windows.Forms.Label();
             this.leader_prg = new System.Windows.Forms.ProgressBar();
             this.close_bt = new System.Windows.Forms.Button();
-            this.break_bt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.leaders)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.programmers)).BeginInit();
             this.button_panel.SuspendLayout();
@@ -52,34 +52,34 @@ namespace GI_Project
             // 
             // leaders
             // 
-            chartArea7.Name = "ChartArea1";
-            this.leaders.ChartAreas.Add(chartArea7);
-            legend7.Name = "Legend1";
-            this.leaders.Legends.Add(legend7);
+            chartArea1.Name = "ChartArea1";
+            this.leaders.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.leaders.Legends.Add(legend1);
             this.leaders.Location = new System.Drawing.Point(0, 0);
             this.leaders.Name = "leaders";
             this.leaders.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series7.ChartArea = "ChartArea1";
-            series7.Legend = "Legend1";
-            series7.Name = "Series1";
-            this.leaders.Series.Add(series7);
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.leaders.Series.Add(series1);
             this.leaders.Size = new System.Drawing.Size(527, 383);
             this.leaders.TabIndex = 0;
             this.leaders.Text = "chart1";
             // 
             // programmers
             // 
-            chartArea8.Name = "ChartArea1";
-            this.programmers.ChartAreas.Add(chartArea8);
-            legend8.Name = "Legend1";
-            this.programmers.Legends.Add(legend8);
+            chartArea2.Name = "ChartArea1";
+            this.programmers.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.programmers.Legends.Add(legend2);
             this.programmers.Location = new System.Drawing.Point(528, 0);
             this.programmers.Name = "programmers";
             this.programmers.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.SeaGreen;
-            series8.ChartArea = "ChartArea1";
-            series8.Legend = "Legend1";
-            series8.Name = "Series1";
-            this.programmers.Series.Add(series8);
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            this.programmers.Series.Add(series2);
             this.programmers.Size = new System.Drawing.Size(507, 383);
             this.programmers.TabIndex = 1;
             this.programmers.Text = "chart2";
@@ -98,6 +98,21 @@ namespace GI_Project
             this.button_panel.Name = "button_panel";
             this.button_panel.Size = new System.Drawing.Size(1035, 146);
             this.button_panel.TabIndex = 2;
+            // 
+            // break_bt
+            // 
+            this.break_bt.BackColor = System.Drawing.Color.DarkCyan;
+            this.break_bt.FlatAppearance.BorderSize = 0;
+            this.break_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.break_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.break_bt.ForeColor = System.Drawing.Color.GhostWhite;
+            this.break_bt.Location = new System.Drawing.Point(444, 74);
+            this.break_bt.Name = "break_bt";
+            this.break_bt.Size = new System.Drawing.Size(147, 41);
+            this.break_bt.TabIndex = 7;
+            this.break_bt.Text = "Перервати";
+            this.break_bt.UseVisualStyleBackColor = false;
+            this.break_bt.Click += new System.EventHandler(this.break_bt_Click);
             // 
             // show_bt
             // 
@@ -161,21 +176,6 @@ namespace GI_Project
             this.close_bt.UseVisualStyleBackColor = false;
             this.close_bt.Click += new System.EventHandler(this.close_bt_Click);
             // 
-            // break_bt
-            // 
-            this.break_bt.BackColor = System.Drawing.Color.DarkCyan;
-            this.break_bt.FlatAppearance.BorderSize = 0;
-            this.break_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.break_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.break_bt.ForeColor = System.Drawing.Color.GhostWhite;
-            this.break_bt.Location = new System.Drawing.Point(444, 74);
-            this.break_bt.Name = "break_bt";
-            this.break_bt.Size = new System.Drawing.Size(147, 41);
-            this.break_bt.TabIndex = 7;
-            this.break_bt.Text = "Перервати";
-            this.break_bt.UseVisualStyleBackColor = false;
-            this.break_bt.Click += new System.EventHandler(this.break_bt_Click);
-            // 
             // ChartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -187,6 +187,7 @@ namespace GI_Project
             this.Controls.Add(this.leaders);
             this.Name = "ChartForm";
             this.Text = "Діаграма";
+            this.SizeChanged += new System.EventHandler(this.ChartForm_SizeChanged);
             ((System.ComponentModel.ISupportInitialize)(this.leaders)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.programmers)).EndInit();
             this.button_panel.ResumeLayout(false);

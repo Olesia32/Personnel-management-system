@@ -75,9 +75,14 @@ namespace GI_Project
                 employeeList = hierarchy[leader];
                 hierarchy.Remove(leader);
             }
+            Leader l = new Leader();
+            if(!hierarchy.ContainsKey(l))
+            {
+                AddNewLeader(l);
+            }
             foreach(Programmer i in employeeList)
             {
-                AddNewEmployee(new Leader(), i);
+                AddNewEmployee(l, i);
             }
         }
         public static Leader GetLeaderByEmployee(Programmer programmer)

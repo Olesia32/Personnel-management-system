@@ -29,7 +29,6 @@ namespace GI_Project
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.welcome_panel = new System.Windows.Forms.Panel();
             this.error_lb = new System.Windows.Forms.Label();
             this.close_bt = new System.Windows.Forms.Button();
@@ -40,7 +39,6 @@ namespace GI_Project
             this.start_bt = new System.Windows.Forms.Button();
             this.welcome_label = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.welcome_lb = new System.Windows.Forms.Label();
@@ -51,7 +49,7 @@ namespace GI_Project
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.welcome_pc)).BeginInit();
             this.SuspendLayout();
-            //  
+            // 
             // welcome_panel
             // 
             this.welcome_panel.BackColor = System.Drawing.Color.GhostWhite;
@@ -170,7 +168,6 @@ namespace GI_Project
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkCyan;
-            this.panel1.Controls.Add(this.panel3);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.welcome_lb);
@@ -180,14 +177,6 @@ namespace GI_Project
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(263, 450);
             this.panel1.TabIndex = 4;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.Color.White;
-            this.panel3.Location = new System.Drawing.Point(263, 205);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(537, 30);
-            this.panel3.TabIndex = 7;
             // 
             // label2
             // 
@@ -252,7 +241,6 @@ namespace GI_Project
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.welcome_pc)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -267,7 +255,6 @@ namespace GI_Project
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel password_panel;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Button close_bt;
         private System.Windows.Forms.TextBox password_tb;

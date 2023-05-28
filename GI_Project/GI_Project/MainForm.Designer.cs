@@ -31,26 +31,42 @@ namespace GI_Project
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.status_lb = new System.Windows.Forms.ToolStripStatusLabel();
+            this.error_lb = new System.Windows.Forms.ToolStripStatusLabel();
+            this.current_status = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.selectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
+            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.type_chouse_panel = new System.Windows.Forms.Panel();
             this.programmer_choise_panel = new System.Windows.Forms.Panel();
+            this.programmer_bt = new System.Windows.Forms.Button();
             this.leder_choise_panel = new System.Windows.Forms.Panel();
+            this.leader_bt = new System.Windows.Forms.Button();
             this.name_label = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.diagram_bt = new System.Windows.Forms.Button();
             this.log_bt = new System.Windows.Forms.Button();
             this.close_bt = new System.Windows.Forms.Button();
             this.search_bt = new System.Windows.Forms.Button();
@@ -103,22 +119,6 @@ namespace GI_Project
             this.av_wage_per_hour = new System.Windows.Forms.Button();
             this.result_panel = new System.Windows.Forms.Panel();
             this.show_label = new System.Windows.Forms.Label();
-            this.programmer_bt = new System.Windows.Forms.Button();
-            this.leader_bt = new System.Windows.Forms.Button();
-            this.newToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.openToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.saveToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.copyToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.printToolStripButton = new System.Windows.Forms.ToolStripButton();
-            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.printToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.diagram_bt = new System.Windows.Forms.Button();
-            this.status_lb = new System.Windows.Forms.ToolStripStatusLabel();
-            this.error_lb = new System.Windows.Forms.ToolStripStatusLabel();
-            this.current_status = new System.Windows.Forms.ToolStripStatusLabel();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
@@ -151,6 +151,23 @@ namespace GI_Project
             this.statusStrip1.TabIndex = 0;
             this.statusStrip1.Text = "statusStrip1";
             // 
+            // status_lb
+            // 
+            this.status_lb.Name = "status_lb";
+            this.status_lb.Size = new System.Drawing.Size(118, 17);
+            this.status_lb.Text = "toolStripStatusLabel1";
+            // 
+            // error_lb
+            // 
+            this.error_lb.ForeColor = System.Drawing.Color.Red;
+            this.error_lb.Name = "error_lb";
+            this.error_lb.Size = new System.Drawing.Size(0, 17);
+            // 
+            // current_status
+            // 
+            this.current_status.Name = "current_status";
+            this.current_status.Size = new System.Drawing.Size(0, 17);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -178,10 +195,37 @@ namespace GI_Project
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.fileToolStripMenuItem.Text = "&Файл";
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
+            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "&Новий файл";
+            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
+            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.openToolStripMenuItem.Text = "&Відкрити";
+            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(139, 6);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
+            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.saveToolStripMenuItem.Text = "&Зберегти";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
             // saveAsToolStripMenuItem
             // 
@@ -194,6 +238,15 @@ namespace GI_Project
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(139, 6);
+            // 
+            // printToolStripMenuItem
+            // 
+            this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
+            this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
+            this.printToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.printToolStripMenuItem.Text = "&Друк";
+            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -215,6 +268,15 @@ namespace GI_Project
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(141, 6);
+            // 
+            // copyToolStripMenuItem
+            // 
+            this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
+            this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
+            this.copyToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.copyToolStripMenuItem.Text = "&Копіювати";
+            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -250,17 +312,66 @@ namespace GI_Project
             this.toolStrip1.Size = new System.Drawing.Size(844, 25);
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
-            this.toolStrip1.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
+            // 
+            // newToolStripButton
+            // 
+            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
+            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newToolStripButton.Name = "newToolStripButton";
+            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.newToolStripButton.Text = "&Новий файл";
+            this.newToolStripButton.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
+            // 
+            // openToolStripButton
+            // 
+            this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
+            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openToolStripButton.Name = "openToolStripButton";
+            this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.openToolStripButton.Text = "&Відкрити";
+            this.openToolStripButton.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // saveToolStripButton
+            // 
+            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
+            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripButton.Name = "saveToolStripButton";
+            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.saveToolStripButton.Text = "&Зберегти";
+            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(6, 25);
             // 
+            // copyToolStripButton
+            // 
+            this.copyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.copyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripButton.Image")));
+            this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.copyToolStripButton.Name = "copyToolStripButton";
+            this.copyToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.copyToolStripButton.Text = "&Копіювати";
+            this.copyToolStripButton.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(6, 25);
+            // 
+            // printToolStripButton
+            // 
+            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
+            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.printToolStripButton.Name = "printToolStripButton";
+            this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
+            this.printToolStripButton.Text = "&Друк";
+            this.printToolStripButton.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
             // 
             // panel1
             // 
@@ -292,6 +403,24 @@ namespace GI_Project
             this.programmer_choise_panel.Size = new System.Drawing.Size(97, 83);
             this.programmer_choise_panel.TabIndex = 18;
             // 
+            // programmer_bt
+            // 
+            this.programmer_bt.BackgroundImage = global::GI_Project.Properties.Resources.pr_white_gray1;
+            this.programmer_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.programmer_bt.FlatAppearance.BorderColor = System.Drawing.Color.DarkSlateGray;
+            this.programmer_bt.FlatAppearance.BorderSize = 0;
+            this.programmer_bt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkSlateGray;
+            this.programmer_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumTurquoise;
+            this.programmer_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.programmer_bt.Location = new System.Drawing.Point(24, 13);
+            this.programmer_bt.Margin = new System.Windows.Forms.Padding(4);
+            this.programmer_bt.Name = "programmer_bt";
+            this.programmer_bt.Size = new System.Drawing.Size(51, 53);
+            this.programmer_bt.TabIndex = 3;
+            this.programmer_bt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.programmer_bt.UseVisualStyleBackColor = true;
+            this.programmer_bt.Click += new System.EventHandler(this.programmer_bt_Click);
+            // 
             // leder_choise_panel
             // 
             this.leder_choise_panel.BackColor = System.Drawing.Color.DimGray;
@@ -301,6 +430,24 @@ namespace GI_Project
             this.leder_choise_panel.Name = "leder_choise_panel";
             this.leder_choise_panel.Size = new System.Drawing.Size(104, 83);
             this.leder_choise_panel.TabIndex = 17;
+            // 
+            // leader_bt
+            // 
+            this.leader_bt.BackgroundImage = global::GI_Project.Properties.Resources.ld_white_gray1;
+            this.leader_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.leader_bt.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
+            this.leader_bt.FlatAppearance.BorderSize = 0;
+            this.leader_bt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
+            this.leader_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
+            this.leader_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.leader_bt.Location = new System.Drawing.Point(13, 13);
+            this.leader_bt.Margin = new System.Windows.Forms.Padding(4);
+            this.leader_bt.Name = "leader_bt";
+            this.leader_bt.Size = new System.Drawing.Size(65, 49);
+            this.leader_bt.TabIndex = 4;
+            this.leader_bt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.leader_bt.UseVisualStyleBackColor = true;
+            this.leader_bt.Click += new System.EventHandler(this.leader_bt_Click);
             // 
             // name_label
             // 
@@ -328,6 +475,23 @@ namespace GI_Project
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 516);
             this.panel2.TabIndex = 4;
+            // 
+            // diagram_bt
+            // 
+            this.diagram_bt.BackColor = System.Drawing.Color.DimGray;
+            this.diagram_bt.FlatAppearance.BorderSize = 0;
+            this.diagram_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.diagram_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.diagram_bt.ForeColor = System.Drawing.Color.GhostWhite;
+            this.diagram_bt.Location = new System.Drawing.Point(0, 368);
+            this.diagram_bt.Name = "diagram_bt";
+            this.diagram_bt.Size = new System.Drawing.Size(200, 42);
+            this.diagram_bt.TabIndex = 6;
+            this.diagram_bt.Text = "Графічні дані";
+            this.diagram_bt.UseVisualStyleBackColor = false;
+            this.diagram_bt.Click += new System.EventHandler(this.diagram_bt_Click);
+            this.diagram_bt.MouseEnter += new System.EventHandler(this.diagram_bt_MouseEnter);
+            this.diagram_bt.MouseLeave += new System.EventHandler(this.diagram_bt_MouseLeave);
             // 
             // log_bt
             // 
@@ -874,171 +1038,6 @@ namespace GI_Project
             this.show_label.Name = "show_label";
             this.show_label.Size = new System.Drawing.Size(0, 17);
             this.show_label.TabIndex = 0;
-            // 
-            // programmer_bt
-            // 
-            this.programmer_bt.BackgroundImage = global::GI_Project.Properties.Resources.pr_white_gray1;
-            this.programmer_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.programmer_bt.FlatAppearance.BorderColor = System.Drawing.Color.GhostWhite;
-            this.programmer_bt.FlatAppearance.BorderSize = 0;
-            this.programmer_bt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.GhostWhite;
-            this.programmer_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.GhostWhite;
-            this.programmer_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.programmer_bt.Location = new System.Drawing.Point(24, 13);
-            this.programmer_bt.Margin = new System.Windows.Forms.Padding(4);
-            this.programmer_bt.Name = "programmer_bt";
-            this.programmer_bt.Size = new System.Drawing.Size(51, 53);
-            this.programmer_bt.TabIndex = 3;
-            this.programmer_bt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.programmer_bt.UseVisualStyleBackColor = true;
-            this.programmer_bt.Click += new System.EventHandler(this.programmer_bt_Click);
-            // 
-            // leader_bt
-            // 
-            this.leader_bt.BackgroundImage = global::GI_Project.Properties.Resources.ld_white_gray1;
-            this.leader_bt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.leader_bt.FlatAppearance.BorderColor = System.Drawing.Color.DimGray;
-            this.leader_bt.FlatAppearance.BorderSize = 0;
-            this.leader_bt.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DimGray;
-            this.leader_bt.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DimGray;
-            this.leader_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.leader_bt.Location = new System.Drawing.Point(13, 13);
-            this.leader_bt.Margin = new System.Windows.Forms.Padding(4);
-            this.leader_bt.Name = "leader_bt";
-            this.leader_bt.Size = new System.Drawing.Size(65, 49);
-            this.leader_bt.TabIndex = 4;
-            this.leader_bt.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.leader_bt.UseVisualStyleBackColor = true;
-            this.leader_bt.Click += new System.EventHandler(this.leader_bt_Click);
-            // 
-            // newToolStripButton
-            // 
-            this.newToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.newToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripButton.Image")));
-            this.newToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newToolStripButton.Name = "newToolStripButton";
-            this.newToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.newToolStripButton.Text = "&Новий файл";
-            this.newToolStripButton.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // openToolStripButton
-            // 
-            this.openToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.openToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripButton.Image")));
-            this.openToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.openToolStripButton.Name = "openToolStripButton";
-            this.openToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.openToolStripButton.Text = "&Відкрити";
-            this.openToolStripButton.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // saveToolStripButton
-            // 
-            this.saveToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.saveToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripButton.Image")));
-            this.saveToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveToolStripButton.Name = "saveToolStripButton";
-            this.saveToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.saveToolStripButton.Text = "&Зберегти";
-            this.saveToolStripButton.Click += new System.EventHandler(this.saveToolStripButton_Click);
-            // 
-            // copyToolStripButton
-            // 
-            this.copyToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.copyToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripButton.Image")));
-            this.copyToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.copyToolStripButton.Name = "copyToolStripButton";
-            this.copyToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.copyToolStripButton.Text = "&Копіювати";
-            this.copyToolStripButton.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
-            // 
-            // printToolStripButton
-            // 
-            this.printToolStripButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.printToolStripButton.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripButton.Image")));
-            this.printToolStripButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.printToolStripButton.Name = "printToolStripButton";
-            this.printToolStripButton.Size = new System.Drawing.Size(23, 22);
-            this.printToolStripButton.Text = "&Друк";
-            this.printToolStripButton.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
-            // 
-            // newToolStripMenuItem
-            // 
-            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
-            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.newToolStripMenuItem.Text = "&Новий файл";
-            this.newToolStripMenuItem.Click += new System.EventHandler(this.newToolStripMenuItem_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
-            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.openToolStripMenuItem.Text = "&Відкрити";
-            this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
-            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.saveToolStripMenuItem.Text = "&Зберегти";
-            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripButton_Click);
-            // 
-            // printToolStripMenuItem
-            // 
-            this.printToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("printToolStripMenuItem.Image")));
-            this.printToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.printToolStripMenuItem.Name = "printToolStripMenuItem";
-            this.printToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
-            this.printToolStripMenuItem.Text = "&Друк";
-            this.printToolStripMenuItem.Click += new System.EventHandler(this.printToolStripMenuItem_Click);
-            // 
-            // copyToolStripMenuItem
-            // 
-            this.copyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("copyToolStripMenuItem.Image")));
-            this.copyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.copyToolStripMenuItem.Name = "copyToolStripMenuItem";
-            this.copyToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
-            this.copyToolStripMenuItem.Text = "&Копіювати";
-            this.copyToolStripMenuItem.Click += new System.EventHandler(this.copyToolStripMenuItem_Click);
-            // 
-            // diagram_bt
-            // 
-            this.diagram_bt.BackColor = System.Drawing.Color.DimGray;
-            this.diagram_bt.FlatAppearance.BorderSize = 0;
-            this.diagram_bt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.diagram_bt.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.diagram_bt.ForeColor = System.Drawing.Color.GhostWhite;
-            this.diagram_bt.Location = new System.Drawing.Point(0, 368);
-            this.diagram_bt.Name = "diagram_bt";
-            this.diagram_bt.Size = new System.Drawing.Size(200, 42);
-            this.diagram_bt.TabIndex = 6;
-            this.diagram_bt.Text = "Графічні дані";
-            this.diagram_bt.UseVisualStyleBackColor = false;
-            this.diagram_bt.Click += new System.EventHandler(this.diagram_bt_Click);
-            this.diagram_bt.MouseEnter += new System.EventHandler(this.diagram_bt_MouseEnter);
-            this.diagram_bt.MouseLeave += new System.EventHandler(this.diagram_bt_MouseLeave);
-            // 
-            // status_lb
-            // 
-            this.status_lb.Name = "status_lb";
-            this.status_lb.Size = new System.Drawing.Size(118, 17);
-            this.status_lb.Text = "toolStripStatusLabel1";
-            // 
-            // error_lb
-            // 
-            this.error_lb.ForeColor = System.Drawing.Color.Red;
-            this.error_lb.Name = "error_lb";
-            this.error_lb.Size = new System.Drawing.Size(0, 17);
-            // 
-            // current_status
-            // 
-            this.current_status.Name = "current_status";
-            this.current_status.Size = new System.Drawing.Size(0, 17);
             // 
             // printPreviewDialog1
             // 
