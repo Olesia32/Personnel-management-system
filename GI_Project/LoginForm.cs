@@ -16,6 +16,12 @@ namespace GI_Project
         {
             InitializeComponent();
         }
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+            int windowWidth = this.Width;
+            panel1.Width = windowWidth / 3;
+            welcome_panel.Width = (windowWidth * 2) / 3;
+        }
 
         private void close_bt_Click(object sender, EventArgs e)
         {
@@ -40,17 +46,22 @@ namespace GI_Project
             password_tb.Text = string.Empty;
             password_tb.UseSystemPasswordChar = true;
         }
-
+        // Пароль Lnu2023
         private void start_bt_Click(object sender, EventArgs e)
         {
-            if(password_tb.Text == "LNu2023")
+            if (Personal.CheckPassword(password_tb.Text))
             {
-                this.Hide();
-                MainForm newForm = new MainForm();
-                newForm.ShowDialog();
-                this.Dispose();
+                this.DialogResult = DialogResult.OK;
+                error_lb.Visible = false;
+                password_tb.Text = "Пароль";
+                password_tb.UseSystemPasswordChar = false;
+            }
+            else
+            {
+                error_lb.Visible = true;
             }
         }
+
     }
 }
 

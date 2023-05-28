@@ -14,7 +14,8 @@ namespace GI_Project
 {
     public partial class ChartForm : Form
     {
-        CancellationTokenSource source;
+        private CancellationTokenSource employeeCancellationSource;
+        private CancellationTokenSource leaderCancellationSource;
         IProgress<(string, int)> progress_leader;
         IProgress<(string, int)> progress_programmer;
         public ChartForm()
@@ -22,6 +23,8 @@ namespace GI_Project
             InitializeComponent();
             leader_prg.Maximum = Personal.CountLeader;
             programmer_prg.Maximum = Personal.CountProgrammer;
+            programmers.Legends.Clear();
+            leaders.Legends.Clear();
             progress_leader = new Progress<(string, int)>(
                  value =>
                  {
@@ -37,8 +40,6 @@ namespace GI_Project
         }
         private async void btnGenerateChart_Click(object sender, EventArgs e)
         {
-            source = new CancellationTokenSource();
-            CancellationToken token = source.Token;
             Task programmer = Task.Run(() => BuildSalaryDistributionChartForEmployees());
             Task leader = Task.Run(() => BuildSalaryDistributionChartForLeaders());
             await Task.WhenAll(programmer, leader);
@@ -49,6 +50,8 @@ namespace GI_Project
         }
         private void BuildSalaryDistributionChartForEmployees()
         {
+            employeeCancellationSource = new CancellationTokenSource();
+            CancellationToken token = employeeCancellationSource.Token;
             List<double> employeeSalaries = Personal.GetProgarammerSalaries();
             employeeSalaries.Sort();
             int employeeCount = employeeSalaries.Count;
@@ -61,11 +64,14 @@ namespace GI_Project
                 double yValue = (i + 1) / (double)employeeCount;
                 dataPoints.Add(new DataPoint(xValue, yValue));
                 BuildChart(programmers, "Функція розподілу для працівників", "Зарплата", "Ймовірність", dataPoints);
+                if (token.IsCancellationRequested) break;
             }
         }
 
         private void BuildSalaryDistributionChartForLeaders()
         {
+            leaderCancellationSource = new CancellationTokenSource();
+            CancellationToken token = leaderCancellationSource.Token;
             List<double> leaderSalaries = Personal.GetLeaderSalaries();
             leaderSalaries.Sort();
             int leaderCount = leaderSalaries.Count;
@@ -78,6 +84,7 @@ namespace GI_Project
                 double yValue = (i + 1) / (double)leaderCount;
                 dataPoints.Add(new DataPoint(xValue, yValue));
                 BuildChart(leaders, "Функція розподілу для керівників", "Зарплата", "Ймовірність", dataPoints);
+                if (token.IsCancellationRequested) break;
             }
         }
 
@@ -96,6 +103,7 @@ namespace GI_Project
             chart.ChartAreas[0].AxisX.Title = xLabel;
             chart.ChartAreas[0].AxisY.Title = yLabel;
             chart.Series[0].Points.Clear();
+            chart.Series[0].ChartType = SeriesChartType.Line;
             foreach (var dataPoint in dataPoints)
             {
                 chart.Series[0].Points.Add(dataPoint);
@@ -105,7 +113,8 @@ namespace GI_Project
 
         private void break_bt_Click(object sender, EventArgs e)
         {
-            source.Cancel();
+            leaderCancellationSource.Cancel();
+            employeeCancellationSource.Cancel();
         }
     }
 }
