@@ -108,23 +108,28 @@ namespace GI_Project
             }
             if (index >= 0 && !show_click)
             {
-                error_lb.Text = string.Empty;
-                DataGridViewCellCollection data = current_dgv.Rows[index].Cells;
-                if (is_leaders)
+                DialogResult result = MessageBox.Show("Ви дійсно хочете видалити працівника?", "Видалення працівника", 
+                    MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
-                    Leader leader = CreateLeader(data);
-                    Personal.DeleteLeader(leader);
-                    NewMessage($"Видалено керівника {leader.ToString()}");
+                    error_lb.Text = string.Empty;
+                    DataGridViewCellCollection data = current_dgv.Rows[index].Cells;
+                    if (is_leaders)
+                    {
+                        Leader leader = CreateLeader(data);
+                        Personal.DeleteLeader(leader);
+                        NewMessage($"Видалено керівника {leader.ToString()}");
+                    }
+                    else
+                    {
+                        Programmer programmer = CreateProgrammer(data);
+                        Personal.DeleteEmployee(programmer);
+                        NewMessage($"Видалено працівника {programmer.ToString()} ");
+                    }
+                    current_dgv.Rows.RemoveAt(index);
+                    is_changed = true;
+                    UpdateInfo();
                 }
-                else
-                {
-                    Programmer programmer = CreateProgrammer(data);
-                    Personal.DeleteEmployee(programmer);
-                    NewMessage($"Видалено працівника {programmer.ToString()} ");
-                }
-                current_dgv.Rows.RemoveAt(index);
-                is_changed = true;
-                UpdateInfo();
             }
         }
 
@@ -422,18 +427,15 @@ namespace GI_Project
 
         private void close_bt_Click(object sender, EventArgs e)
         {
-            if(is_log)
-            {
-                Personal.StoreLog();
-            }
-            if(is_new_file)
+            Personal.StoreLog();
+            if (is_new_file)
             {
                 saveAsToolStripMenuItem_Click(sender, e);
             }
-            else if(is_changed)
+            else if (is_changed)
             {
-                DialogResult result = MessageBox.Show("Чи бажаєте зберегти зміни?", "Збереження", MessageBoxButtons.YesNo ,MessageBoxIcon.Question);
-                if(result == DialogResult.Yes)
+                DialogResult result = MessageBox.Show("Чи бажаєте зберегти зміни?", "Збереження", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.Yes)
                 {
                     saveToolStripButton_Click(sender, e);
                 }
@@ -529,6 +531,8 @@ namespace GI_Project
                 openToolStripButton.Enabled = false;
                 openToolStripMenuItem.Enabled = false;
                 selectAllToolStripMenuItem.Enabled = false;
+                leader_bt.Enabled = false;
+                programmer_bt.Enabled = false;
                 current_dgv.Visible = false;
                 result_panel.Visible = true;
                 button_box.Visible = true;
@@ -549,12 +553,13 @@ namespace GI_Project
                 openToolStripButton.Enabled = true;
                 selectAllToolStripMenuItem.Enabled = true;
                 openToolStripMenuItem.Enabled = true;
+                leader_bt.Enabled = true;
+                programmer_bt.Enabled = true;
                 current_dgv.Visible = true;
                 result_panel.Visible = false;
                 button_box.Visible = false;
                 log_panel.Visible = false;
                 log_bt.Text = "Журнал операцій";
-                Personal.StoreLog();
             }
         }
 
@@ -638,6 +643,6 @@ namespace GI_Project
         private void diagram_bt_MouseLeave(object sender, EventArgs e)
         {
             diagram_bt.BackColor = Color.DimGray;
-        }
+        } 
     }
 }

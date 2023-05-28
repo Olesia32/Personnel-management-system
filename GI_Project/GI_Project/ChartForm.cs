@@ -116,5 +116,12 @@ namespace GI_Project
             leaderCancellationSource.Cancel();
             employeeCancellationSource.Cancel();
         }
+
+        private void ChartForm_SizeChanged(object sender, EventArgs e)
+        {
+            leaders.Width = this.Width / 2;
+            programmers.Width = this.Width / 2;
+            programmers.Location = new Point(this.Width / 2, programmers.Location.Y);
+        }
     }
 }

@@ -21,12 +21,10 @@ namespace GI_Project
         public Leader leader;
         public Leader new_leader;
         public Programmer new_programmer;
-        private MainForm mainForm;
 
         public CreateForm()
         {
             InitializeComponent();
-            mainForm = Owner as MainForm;
         }
 
         private void leader_bt_Click(object sender, EventArgs e)
@@ -81,36 +79,9 @@ namespace GI_Project
             else
             {
                 surname = surname_ld.Text;
-                try
-                {
-                    experience = double.Parse(experience_ld.Text);
-                }
-                catch
-                {
-                    invalid_data_bt.Visible = true;
-                    invalid_data_bt.Location = new Point(400, experience_ld.Location.Y);
-                    invalid_data_bt.Text = "Введіть числове значення";
-                }
-                try
-                {
-                    wage_per_hour = double.Parse(wage_per_hour_ld.Text);
-                }
-                catch
-                {
-                    invalid_data_bt.Visible = true;
-                    invalid_data_bt.Location = new Point(400, wage_per_hour_ld.Location.Y);
-                    invalid_data_bt.Text = "Введіть числове значення";
-                }
-                try
-                {
-                    minimum_hour = double.Parse(minimum_hour_ld.Text);
-                }
-                catch
-                {
-                    invalid_data_bt.Visible = true;
-                    invalid_data_bt.Location = new Point(400, minimum_hour_ld.Location.Y);
-                    invalid_data_bt.Text = "Введіть числове значення";
-                }
+                experience = TryParse(experience_ld);
+                wage_per_hour = TryParse(wage_per_hour_ld);
+                minimum_hour = TryParse(minimum_hour_ld);
                 if (experience != 0.0 && wage_per_hour != 0.0 && minimum_hour != 0.0)
                 {
                     new_leader = new Leader(surname, experience, wage_per_hour, minimum_hour);
@@ -129,46 +100,10 @@ namespace GI_Project
             else
             {
                 surname = surname_pr.Text;
-                try
-                {
-                    experience = double.Parse(experience_pr.Text);
-                }
-                catch
-                {
-                    invalid_data_bt.Visible = true;
-                    invalid_data_bt.Location = new Point(400, experience_pr.Location.Y);
-                    invalid_data_bt.Text = "Введіть числове значення";
-                }
-                try
-                {
-                    wage_per_hour = double.Parse(wage_per_hour_pr.Text);
-                }
-                catch
-                {
-                    invalid_data_bt.Visible = true;
-                    invalid_data_bt.Location = new Point(400, wage_per_hour_pr.Location.Y);
-                    invalid_data_bt.Text = "Введіть числове значення";
-                }
-                try
-                {
-                    minimum_hour = double.Parse(minimum_hour_pr.Text);
-                }
-                catch
-                {
-                    invalid_data_bt.Visible = true;
-                    invalid_data_bt.Location = new Point(400, minimum_hour_pr.Location.Y);
-                    invalid_data_bt.Text = "Введіть числове значення";
-                }
-                try
-                {
-                    worked_hour = double.Parse(worked_hour_pr.Text);
-                }
-                catch
-                {
-                    invalid_data_bt.Visible = true;
-                    invalid_data_bt.Location = new Point(400, worked_hour_pr.Location.Y);
-                    invalid_data_bt.Text = "Введіть числове значення";
-                }
+                experience = TryParse(experience_pr);
+                wage_per_hour = TryParse(wage_per_hour_pr);
+                minimum_hour = TryParse(minimum_hour_pr);
+                worked_hour = TryParse(worked_hour_pr);
                 leader = new Leader();
                 leader = Personal.CreateLeaderFromData(leader_cb.SelectedItem.ToString());
                 if (experience != 0.0 && wage_per_hour != 0.0 && minimum_hour != 0.0 && worked_hour != 0.0 && leader_cb.Text != string.Empty)
@@ -189,7 +124,29 @@ namespace GI_Project
                 ParseProgrammerData();
             }
         }
-
+        private double TryParse(TextBox tb)
+        {
+            try
+            {
+                return double.Parse(tb.Text);
+            }
+            catch
+            {
+                if (is_leader)
+                {
+                    invalid_data.Visible = true;
+                    invalid_data.Location = new Point(400, tb.Location.Y);
+                    invalid_data.Text = "Введіть числове значення";
+                }
+                else
+                {
+                    invalid_data_bt.Visible = true;
+                    invalid_data_bt.Location = new Point(400, tb.Location.Y);
+                    invalid_data_bt.Text = "Введіть числове значення";
+                }
+                return 0.0;
+            }
+        }
         private void back_bt_Click(object sender, EventArgs e)
         {
             Close();
